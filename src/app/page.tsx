@@ -11,10 +11,11 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Features from "@/components/Features";
-
 import FeaturedProducts from "@/components/FeaturedProducts";
 // import { Categories } from "@/components/Categories";
 import Categories from "@/components/Categories";
+import Footer from "@/components/Footer";
+// import Cart from "@/components/Cart";
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
       <Features />
       <Categories />
       <FeaturedProducts />
+      {/* <Cart /> Display Cart here */}
+      <Footer />
     </main>
   );
 }

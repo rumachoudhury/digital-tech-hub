@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="bg-blue-600 text-white py-20">
+    <section className="bg-blue-600 text-white py-40">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
         {/* Left side: Text */}
         <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
