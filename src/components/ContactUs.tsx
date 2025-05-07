@@ -9,7 +9,7 @@ export default function ContactUs() {
       <div className="mb-4">
         <Link
           href="/"
-          className="inline-block bg-green-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+          className="inline-block bg-green-600 text-white px-4 py-2 mt-6 rounded-md hover:bg-blue-700 transition"
         >
           Back to Home
         </Link>

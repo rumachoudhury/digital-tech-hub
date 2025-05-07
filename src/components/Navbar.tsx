@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "./ui/dropdown-menu"; // using shadcn/ui
+} from "./ui/dropdown-menu"; //I am using shadcn/ui
 import { useState } from "react";
 
 export default function Navbar() {
@@ -24,7 +24,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white p-4 flex items-center justify-between fixed top-0 left-0 w-full z-50 shadow-md">
+    <nav className=" bg-gray-900 text-white p-4 flex items-center justify-between fixed top-0 left-0 w-full z-50 shadow-md">
       {/* Logo Section */}
       <div className="flex items-center space-x-3">
         <Image
@@ -99,6 +99,12 @@ export default function Navbar() {
             Contact Us
           </Link>
         </li>
+
+        <li>
+          <Link href="/login" className="hover:text-gray-400">
+            Login
+          </Link>
+        </li>
       </ul>
 
       {/* Search Input (Hidden on small screens) */}
@@ -108,7 +114,7 @@ export default function Navbar() {
           <input
             type="text"
             placeholder="Search for products..."
-            className="w-100 pl-10 pr-4 py-1 rounded-md text-white bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-80 pl-10 pr-4 py-1 rounded-md text-white bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>

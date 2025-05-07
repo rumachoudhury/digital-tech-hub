@@ -8,24 +8,25 @@
 //   );
 // }
 
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Features from "@/components/Features";
 import FeaturedProducts from "@/components/FeaturedProducts";
-// import { Categories } from "@/components/Categories";
 import Categories from "@/components/Categories";
 import Footer from "@/components/Footer";
-// import Cart from "@/components/Cart";
+// import Cart from "@/app/cart/page";
+
+// import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      {/* <Link>Login</Link> */}
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <Categories />
       <FeaturedProducts />
-      {/* <Cart /> Display Cart here */}
+      {/* <Cart />  */}
       <Footer />
     </main>
   );
