@@ -39,11 +39,10 @@ export default function FeaturedProducts() {
         Featured Products
       </h3>
 
-      {/* only problem for screen 768 other devices are ok  */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {products.map((product) => (
           <Link key={product._id} href={`/product/${product._id}`}>
-            <Card className="h-full  hover:shadow-xl transition-transform duration-300 hover:scale-105 flex flex-col cursor-pointer">
+            <Card className=" h-full md:max-h-[480px] hover:shadow-xl transition-transform duration-300 hover:scale-105 flex flex-col cursor-pointer">
               <CardHeader className="relative flex flex-col items-center gap-4 pb-0">
                 <Image
                   src={product.img}
@@ -58,7 +57,7 @@ export default function FeaturedProducts() {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="flex-1 flex flex-col justify-between">
+              <CardContent className="flex-1 flex flex-col justify-between overflow-hidden ">
                 <div>
                   <div className="flex justify-center mb-2">
                     {Array.from({ length: 5 }).map((_, index) =>
@@ -75,7 +74,7 @@ export default function FeaturedProducts() {
                       )
                     )}
                   </div>
-                  <p className="text-gray-700 text-sm mb-2 line-clamp-3 h-[60px] overflow-hidden">
+                  <p className="text-gray-700 text-sm mb-2 line-clamp-3 h-[60px] overflow-hidden ">
                     {product.description}
                   </p>
                 </div>

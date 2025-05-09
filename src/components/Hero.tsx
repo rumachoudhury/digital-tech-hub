@@ -34,13 +34,14 @@ export default function Hero() {
         </div>
 
         {/* small screens using gap-y-10, image sizing with max-w-xs on mobile, w-full so image doesn't overflow on smaller devices */}
-        <div className="md:w-1/2 w-full flex justify-center items-center">
+        <div className="md:w-1/2 w-full flex justify-center items-center mt-10 md:mt-20">
           <Image
             src="/technology-and-online-shopping.jpg"
             alt="Tech Gadgets"
             width={400}
             height={400}
-            className="rounded-lg shadow-lg w-full max-w-xs md:max-w-md lg:max-w-xl"
+            // className="rounded-lg shadow-lg w-full max-w-xs lg:max-w-xl"
+            className="rounded-lg shadow-lg w-full md:w-[80%] lg:w-full"
           />
         </div>
       </div>

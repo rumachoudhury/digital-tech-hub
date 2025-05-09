@@ -1,5 +1,3 @@
-// onle problem for screen size 1024 other devices are ok
-
 "use client";
 
 import { useState } from "react";
@@ -37,7 +35,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white px-4 py-2 fixed top-0 left-0 z-50 shadow-md w-full">
+    <nav className="bg-gray-900 text-white px-4 py-2 fixed top-0 left-0 z-50 shadow-md w-full ">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -97,13 +95,13 @@ export default function Navbar() {
         </div>
 
         {/* Search */}
-        <div className="hidden lg:block flex-1 mx-8 ml-40">
+        <div className="hidden lg:block flex-1 mx-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
-              placeholder="Search for products..."
-              className="w-80 pl-10 pr-4 py-1 rounded-md text-white bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500  "
+              placeholder="Search"
+              className="w-full pl-10 pr-4 py-1 rounded-md text-white bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
