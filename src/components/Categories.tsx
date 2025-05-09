@@ -65,19 +65,19 @@ export default function Categories() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
           <Laptop className="w-10 h-10 text-blue-500 mb-4 mx-auto" />
-          <h4 className="text-2xl font-bold mb-3">Laptops</h4>
+          <h4 className="text-2xl font-bold mb-3 text-center">Laptops</h4>
           <p className="text-gray-600">Powerful laptops for work and play.</p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
           <Smartphone className="w-10 h-10 text-green-500 mb-4 mx-auto" />
-          <h4 className="text-2xl font-bold mb-3">Smartphones</h4>
+          <h4 className="text-2xl font-bold mb-3 text-center">Smartphones</h4>
           <p className="text-gray-600">
             Stay connected with the latest phones.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
           <Headphones className="w-10 h-10 text-purple-500 mb-4 mx-auto" />
-          <h4 className="text-2xl font-bold mb-3">Accessories</h4>
+          <h4 className="text-2xl font-bold mb-3 text-center">Accessories</h4>
           <p className="text-gray-600">Find the best tech accessories here.</p>
         </div>
       </div>

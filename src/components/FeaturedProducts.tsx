@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-
 import {
   Card,
   CardHeader,
@@ -40,10 +39,11 @@ export default function FeaturedProducts() {
         Featured Products
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10  mx-auto px-6">
+      {/* only problem for screen 768 other devices are ok  */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {products.map((product) => (
           <Link key={product._id} href={`/product/${product._id}`}>
-            <Card className="h-full min-h-[450px] hover:shadow-xl transition flex flex-col cursor-pointer">
+            <Card className="h-full  hover:shadow-xl transition-transform duration-300 hover:scale-105 flex flex-col cursor-pointer">
               <CardHeader className="relative flex flex-col items-center gap-4 pb-0">
                 <Image
                   src={product.img}

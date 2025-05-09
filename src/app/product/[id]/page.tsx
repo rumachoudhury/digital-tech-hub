@@ -10,7 +10,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
-
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 
@@ -18,8 +17,19 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const { addToCart } = useCart();
   const { id } = params;
-  const [product, setProduct] = useState<any>(null);
-  const [otherProducts, setOtherProducts] = useState<any[]>([]);
+  const [product, setProduct] = useState<Product | null>(null);
+  interface Product {
+    _id: string;
+    title: string;
+    img: string;
+    image?: string;
+    description: string;
+    price: number;
+    rating: number;
+    category: string;
+  }
+
+  const [otherProducts, setOtherProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +39,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       const allProductsRes = await axios.get("http://localhost:5001/products");
 
       setProduct(productRes.data?.data);
-      const others = allProductsRes.data?.data.filter((p: any) => p._id !== id);
+      const others = allProductsRes.data?.data.filter(
+        (p: Product) => p._id !== id
+      );
       setOtherProducts(others);
     };
 
@@ -73,15 +85,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </div>
 
           <div className="flex gap-4 mt-5">
-            {/* <button className="text-sm text-white bg-red-600 px-10 py-2">
-              Add To Cart
-            </button> */}
             <button
               className="text-sm text-white bg-red-600 px-10 py-2"
               onClick={() =>
                 addToCart({
                   title: product.title,
-                  price: product.price,
+                  price: product.price.toString(),
                   description: product.description,
                   img: product.img,
                 })
@@ -89,19 +98,17 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             >
               Add To Cart
             </button>
-            {/* <button className="text-sm text-white bg-black px-10 py-2">
-              Buy Now
-            </button> */}
+
             <button
               className="text-sm text-white bg-black px-10 py-2"
               onClick={() => {
                 addToCart({
                   title: product.title,
-                  price: product.price,
+                  price: product.price.toString(),
                   description: product.description,
                   img: product.img,
                 });
-                router.push("/cart"); // You need to have a cart page for this
+                router.push("/cart"); // cart page
               }}
             >
               Buy Now
@@ -128,7 +135,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               1024: { slidesPerView: 3 },
             }}
           >
-            {otherProducts.map((item: any) => (
+            {otherProducts.map((item: Product) => (
               <SwiperSlide key={item._id}>
                 <Link href={`/product/${item._id}`}>
                   <div className="border p-4 rounded-lg hover:shadow-lg transition  flex flex-col items-center justify-between bg-white">
@@ -173,3 +180,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     </div>
   );
 }
+
+// productRes = the full response.
+// productRes.data = just the product info from the backend.
