@@ -102,12 +102,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <button
               className="text-sm text-white bg-black px-10 py-2"
               onClick={() => {
-                // addToCart({
-                //   title: product.title,
-                //   price: product.price.toString(),
-                //   description: product.description,
-                //   img: product.img,
-                // });
                 router.push("/cart"); // cart page
               }}
             >
