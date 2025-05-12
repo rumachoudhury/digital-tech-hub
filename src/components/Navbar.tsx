@@ -196,7 +196,8 @@ export default function Navbar() {
               <span className="block hover:text-gray-400">Hi, {user.name}</span>
               <Button
                 onClick={handleLogout}
-                className="w-full bg-red-500 hover:bg-red-600"
+                // className="w-full bg-red-500 hover:bg-red-600 "
+                className=" bg-red-500 hover:bg-red-600  lg:max-w-md"
               >
                 Logout
               </Button>
