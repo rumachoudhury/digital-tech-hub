@@ -34,7 +34,7 @@ export default function Hero() {
           <Link href="#products">
             <Button
               variant="default"
-              className="mt-6 bg-white text-blue-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300 cursor-pointer"
+              className="mt-6 bg-white text-blue-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-200 transition duration-300 cursor-pointer"
             >
               Shop Now
             </Button>
