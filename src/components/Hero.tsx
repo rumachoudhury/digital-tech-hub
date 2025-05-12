@@ -6,17 +6,10 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-blue-600 text-white py-20 md:py-30">
-      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 gap-y-10 md:gap-y-0">
+    <section className="bg-blue-600 text-white py-20 md:py-30 md:mt-6 sm:mt-2">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-4 sm:px-6 md:px-10 lg:px-20 gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-20">
         {/* Left side: Text */}
-        <div className="md:w-1/2 text-center md:text-left">
-          {/* <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-            <span className="text-blue-600 bg-blue-100 px-3 py-1 rounded-md shadow-sm animate-pulse">
-              One-Stop Shop
-            </span>{" "}
-            for All Things Tech
-          </h2> */}
-
+        <div className="w-full md:w-1/2 text-center md:text-left">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
             <span className="bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-500 text-blue-900 px-3 py-1 rounded-md shadow-sm animate-pulse">
               One-Stop Shop
@@ -41,15 +34,14 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* small screens using gap-y-10, image sizing with max-w-xs on mobile, w-full so image doesn't overflow on smaller devices */}
-        <div className="md:w-1/2 w-full flex justify-center items-center mt-10 md:mt-20">
+        {/* Right side: Image */}
+        <div className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
           <Image
             src="/technology-and-online-shopping.jpg"
             alt="Tech Gadgets"
-            width={400}
-            height={400}
-            // className="rounded-lg shadow-lg w-full max-w-xs lg:max-w-xl"
-            className="rounded-lg shadow-lg w-full md:w-[80%] lg:w-full"
+            width={500}
+            height={500}
+            className="rounded-lg shadow-lg w-[90%] sm:w-[80%] md:w-full max-w-md lg:max-w-xl h-auto"
           />
         </div>
       </div>
