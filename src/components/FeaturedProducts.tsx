@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 import {
   Card,
   CardHeader,
@@ -10,7 +12,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Star, StarOff } from "lucide-react";
 import type { Product } from "@/components/type/types";
 import axios from "axios";
@@ -18,7 +20,11 @@ import { useEffect, useState } from "react";
 
 export default function FeaturedProducts() {
   const { addToCart } = useCart();
+  //   const {} = useAuth(); // checking if user is logged in
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
+  const authContext = useAuth();
+  const user = authContext?.user;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -87,7 +93,7 @@ export default function FeaturedProducts() {
               </CardContent>
 
               <CardFooter className="justify-center mt-4">
-                <Button
+                {/* <Button
                   onClick={(e) => {
                     e.preventDefault();
                     addToCart({
@@ -98,10 +104,31 @@ export default function FeaturedProducts() {
                     });
                   }}
                   aria-label={`Add ${product.title} to cart`}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-3xl"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-3xl cursor-pointer"
                 >
                   Add to Cart
-                </Button>
+                </Button> */}
+
+                <button
+                  className="text-sm text-white bg-red-600 px-10 py-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    if (!user) {
+                      alert("Please log in to add items to your cart");
+                      router.push("/login");
+                    }
+
+                    addToCart({
+                      title: product.title,
+                      price: product.price.toString(),
+                      description: product.description,
+                      image: product.img,
+                    });
+                  }}
+                >
+                  Add To Cart
+                </button>
               </CardFooter>
             </Card>
           </Link>

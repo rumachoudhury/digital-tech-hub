@@ -41,7 +41,6 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
       try {
         const res = await fetch("http://localhost:5001/products");
         const json = await res.json();
-
         if (Array.isArray(json.data)) {
           setProducts(json.data);
         } else {
@@ -53,14 +52,12 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
         setLoading(false);
       }
     };
-
     fetchProducts();
   }, []);
 
   const filtered = products.filter((product) =>
     product.title.toLowerCase().includes(query)
   );
-
   const otherProducts = products.filter(
     (product) => !filtered.includes(product)
   );
@@ -76,26 +73,26 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
       ) : filtered.length === 0 ? (
         <p className="text-center text-gray-600">No products found.</p>
       ) : (
-        <ul className="space-y-10 flex items-center justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {filtered.map((product) => (
-            <li
+            <div
               key={product._id}
-              className="flex flex-col md:flex-row items-start gap-6 p-6 border rounded-lg shadow-sm bg-white"
+              className="flex flex-col bg-white shadow-md rounded-lg overflow-hidden group hover:shadow-lg transition h-auto  "
             >
               <Image
                 src={product.img}
                 alt={product.title}
-                width={150}
-                height={150}
-                className="rounded-md object-contain w-[400px] h-[400px]"
+                width={300}
+                height={250}
+                className="rounded-lg object-contain  w-full h-[250px] transform transition-transform duration-300 group-hover:scale-105 "
               />
 
-              <div className="flex-1 space-y-2 mt-15 ml-20">
-                <h2 className="text-2xl font-semibold text-gray-800">
+              <div className="p-4 flex flex-col justify-between flex-1">
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">
                   {product.title}
                 </h2>
 
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 mb-2">
                   {Array.from({ length: 5 }).map((_, index) =>
                     index < product.rating ? (
                       <Star
@@ -108,20 +105,17 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                   )}
                 </div>
 
-                <p className="text-gray-700 line-clamp-3">
+                <p className="text-gray-700 text-sm mb-1 line-clamp-2">
                   {product.description}
                 </p>
-
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 mb-1">
                   Category: {product.category}
                 </p>
-
-                <p className="text-lg font-bold text-green-600">
+                <p className="text-lg font-bold text-green-600 mb-4">
                   ${product.price}
                 </p>
 
                 <button
-                  className="mt-4 inline-block bg-red-600 text-white px-6 py-2 text-sm rounded hover:bg-red-700 transition"
                   onClick={() =>
                     addToCart({
                       title: product.title,
@@ -130,21 +124,23 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                       image: product.img,
                     })
                   }
+                  className="mt-auto bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition"
                 >
                   Add To Cart
                 </button>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
 
       {/* Swiper Slider */}
       {otherProducts.length > 0 && (
-        <div className="mt-16 w-auto h-auto shadow-2xl p-6 bg-white rounded-lg">
+        <div className="mt-20 bg-white p-6 rounded-lg shadow-2xl">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">
             Search More Products
           </h2>
+
           <Swiper
             modules={[Navigation, Pagination]}
             navigation
@@ -157,22 +153,22 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
               1024: { slidesPerView: 3 },
             }}
           >
-            {otherProducts.map((item: Product) => (
+            {otherProducts.map((item) => (
               <SwiperSlide key={item._id}>
                 <Link href={`/product/${item._id}`}>
-                  <div className="border p-4 rounded-lg hover:shadow-lg transition flex flex-col items-center justify-between bg-white">
+                  <div className="flex flex-col bg-white border p-4 rounded-lg hover:shadow-lg transition items-center">
                     <Image
                       src={item.img}
                       alt={item.title}
                       width={150}
                       height={150}
-                      className="mx-auto mb-4 object-contain h-[200px] w-auto"
+                      className="object-contain h-[200px] w-auto mb-4"
                     />
-                    <h3 className="text-lg font-semibold text-gray-700 text-center">
+                    <h3 className="text-lg font-semibold text-center text-gray-800 mb-1">
                       {item.title}
                     </h3>
 
-                    <div className="flex justify-center my-2">
+                    <div className="flex justify-center my-1">
                       {Array.from({ length: 5 }).map((_, index) =>
                         index < item.rating ? (
                           <Star
@@ -188,7 +184,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                       )}
                     </div>
 
-                    <p className="text-gray-700 text-sm text-center mb-2 line-clamp-3 h-[60px] overflow-hidden">
+                    <p className="text-gray-700 text-sm text-center line-clamp-2 mb-2 h-[40px] overflow-hidden">
                       {item.description}
                     </p>
                     <p className="text-blue-600 font-bold">${item.price}</p>

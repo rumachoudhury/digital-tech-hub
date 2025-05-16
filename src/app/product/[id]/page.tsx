@@ -12,8 +12,10 @@ import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
+  const { user } = useAuth();
   const router = useRouter();
   const { addToCart } = useCart();
   const { id } = params;
@@ -87,14 +89,20 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <div className="flex gap-4 mt-5">
             <button
               className="text-sm text-white bg-red-600 px-10 py-2"
-              onClick={() =>
+              onClick={() => {
+                if (!user) {
+                  alert("Please log in to add items to your cart.");
+                  router.push("/login");
+                  return;
+                }
+
                 addToCart({
                   title: product.title,
                   price: product.price.toString(),
                   description: product.description,
-                  img: product.img,
-                })
-              }
+                  image: product.img,
+                });
+              }}
             >
               Add To Cart
             </button>

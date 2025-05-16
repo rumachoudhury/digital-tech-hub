@@ -11,11 +11,11 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { login } = useAuth();
+  const authContext = useAuth();
+  const login = authContext?.login;
   const router = useRouter();
 
   const handleLogin = async () => {
-    // Changed to async function to handle API calls (if needed)
     if (!email || !password) {
       setError("Please fill in all fields.");
       return;
@@ -24,21 +24,31 @@ export default function LoginPage() {
     try {
       // Simulate an API call or get data from your backend (e.g., using fetch or axios)
       // For simplicity, we'll assume the data comes from localStorage here:
+
       const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+      //   const users = JSON.parse(localStorage.getItem("users") || "[]");
 
       if (storedUser.email === email && storedUser.password === password) {
         setError("");
 
+        // const matchedUser = users.find(
+        //     (user: any) => user.email === email && user.password === password
+        //   );
+
         const loggedInUser = {
-          name: storedUser.name, // Assuming your user object contains a 'name'
+          name: storedUser.name,
           email: storedUser.email,
-          // You can include other data like 'role', 'preferences', etc.
         };
+        // const loggedInUser = {
+        //     name: matchedUser.name,
+        //     email: matchedUser.email,
+        //   };
 
         localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser)); // Store full user object
+        localStorage.setItem("userToken", JSON.stringify(true));
 
         // Call login function with the full user object
-        login(loggedInUser);
+        login?.(loggedInUser);
 
         router.push("/");
       } else {

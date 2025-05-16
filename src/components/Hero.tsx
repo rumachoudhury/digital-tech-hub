@@ -37,7 +37,7 @@ export default function Hero() {
         {/* Right side: Image */}
         <div className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
           <Image
-            src="/technology-and-online-shopping.jpg"
+            src="/technology-and-online-shopping3.jpg"
             alt="Tech Gadgets"
             width={500}
             height={500}
