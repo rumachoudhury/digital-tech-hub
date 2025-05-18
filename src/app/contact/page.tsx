@@ -7,7 +7,7 @@
 "use client";
 
 import ProtectedRoute from "@/components/ProtectedRoute";
-import ContactUs from "@/components/ContactUs"; // assuming your ContactUs is in components
+import ContactUs from "@/components/ContactUs";
 
 export default function ContactPage() {
   return (
@@ -16,3 +16,5 @@ export default function ContactPage() {
     </ProtectedRoute>
   );
 }
+
+//<ProtectedRoute> for emailjs

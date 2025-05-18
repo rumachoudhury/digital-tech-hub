@@ -171,12 +171,21 @@ const CartItems: FC<CartItemsProps> = ({
         );
       })}
 
-      <button
+      {/* <button
         onClick={handlePlaceOrder}
         className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
       >
         Place Order
-      </button>
+      </button> */}
+
+      {cart.length > 0 && (
+        <button
+          onClick={handlePlaceOrder}
+          className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+        >
+          Place Order
+        </button>
+      )}
     </div>
   );
 };

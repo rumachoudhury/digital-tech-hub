@@ -49,7 +49,18 @@ export default function CartPage() {
   return (
     <div className="flex flex-col md:flex-row min-h-screen mt-20">
       {/* Left – cart list */}
-      <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
+      <div className="flex-1 p-6 bg-gray-50 overflow-y-auto ml-20">
+        {/* ---------------------- */}
+        <div className="relative w-[300px] h-[300px]">
+          <Image
+            src="/hippo-empty-cart.png"
+            alt="empty cart"
+            fill
+            className="object-contain"
+          />
+        </div>
+        {/* ---------------------- */}
+
         <h2 className="text-xl font-semibold mb-4">
           Your Cart ({cart.length} items)
         </h2>

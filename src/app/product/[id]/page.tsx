@@ -88,7 +88,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
           <div className="flex gap-4 mt-5">
             <button
-              className="text-sm text-white bg-red-600 px-10 py-2"
+              className="text-sm text-white bg-red-600 px-10 py-2 cursor-pointer"
               onClick={() => {
                 if (!user) {
                   alert("Please log in to add items to your cart.");
@@ -108,7 +108,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </button>
 
             <button
-              className="text-sm text-white bg-black px-10 py-2"
+              className="text-sm text-white bg-black px-10 py-2 cursor-pointer"
               onClick={() => {
                 router.push("/cart"); // cart page
               }}

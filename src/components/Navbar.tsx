@@ -25,7 +25,6 @@ export default function Navbar() {
     user: { name: string } | null;
     logout: () => void;
   };
-  // By using void, we're telling TypeScript:"Don’t expect a return value from this function, it doesn’t return anything — not a value, not a promise, just runs and ends.
 
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,16 +35,23 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white fixed top-0 left-0 z-50 w-full shadow-md">
-      <div className=" container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+    <nav
+      // className="bg-gray-900 text-white fixed top-0 left-0 z-50 w-full shadow-md"
+      className="bg-gray-900 text-white fixed top-0 left-0 z-50 w-full shadow-md overflow-x-auto"
+    >
+      <div
+        // className=" container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between"
+        className="container mx-auto px-4 sm:px-5 lg:px-6 py-3 flex items-center justify-between"
+      >
         {/* Left: Logo and Hamburger */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2">
           <Image
             src="/logo.png"
             alt="Logo"
             width={40}
             height={40}
-            className="rounded-full"
+            // className="rounded-full"
+            className="rounded-full flex-shrink-0"
           />
           <h1 className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
             DigitalTechHub
@@ -60,7 +66,8 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center space-x-6">
+        {/* md:ml-4  the issue is solved for 1024 screen */}
+        <div className="hidden lg:flex items-center space-x-4 md:ml-4 ">
           <Link href="/" className="hover:text-gray-400">
             Home
           </Link>
@@ -89,7 +96,10 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Icons & Search */}
-        <div className="hidden lg:flex items-center space-x-4">
+        <div
+          // className="hidden lg:flex items-center space-x-4"
+          className="hidden lg:flex items-center lg:space-x-4 xl:space-x-6"
+        >
           {/* Search */}
           <form
             onSubmit={(e) => {
@@ -113,7 +123,7 @@ export default function Navbar() {
 
           {/* Cart & User */}
           <Link href="/cart" className="relative hover:text-blue-400">
-            <ShoppingCart size={24} />
+            <ShoppingCart size={24} />{" "}
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                 {totalItems}

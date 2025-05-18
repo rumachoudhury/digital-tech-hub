@@ -39,7 +39,7 @@ export default function ConfirmationPage() {
               alt={item.title}
               className="rounded"
             />
-            <div className="mt-6">
+            <div className="md:mt-4 sm:mt-0">
               <h3 className="text-xl gap-2 font-semibold flex">
                 <CheckCircle className="w-6 h-6 text-white bg-green-400 rounded-full" />
                 Added to cart
