@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ArrowRight } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -22,29 +23,17 @@ export default function LoginPage() {
     }
 
     try {
-      // Simulate an API call or get data from your backend (e.g., using fetch or axios)
-      // For simplicity, we'll assume the data comes from localStorage here:
-
       const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
-      //   const users = JSON.parse(localStorage.getItem("users") || "[]");
 
       if (storedUser.email === email && storedUser.password === password) {
         setError("");
-
-        // const matchedUser = users.find(
-        //     (user: any) => user.email === email && user.password === password
-        //   );
 
         const loggedInUser = {
           name: storedUser.name,
           email: storedUser.email,
         };
-        // const loggedInUser = {
-        //     name: matchedUser.name,
-        //     email: matchedUser.email,
-        //   };
 
-        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser)); // Store full user object
+        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
         localStorage.setItem("userToken", JSON.stringify(true));
 
         // Call login function with the full user object
@@ -86,8 +75,12 @@ export default function LoginPage() {
 
       <p className="mt-4 text-sm text-center">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="text-blue-500 hover:underline">
+        <Link
+          href="/register"
+          className="text-blue-500 hover:underline  inline-flex items-center"
+        >
           Register
+          <ArrowRight className="ml-1 h-4 w-4" />
         </Link>
       </p>
     </div>

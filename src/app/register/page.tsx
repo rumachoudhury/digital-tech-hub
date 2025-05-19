@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { ArrowRight } from "lucide-react";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -91,10 +92,14 @@ export default function RegisterPage() {
             </Button>
           </form>
 
-          <p className="mt-4 text-sm text-center">
+          <p className="mt-4 text-sm text-center text-gray-700">
             Already have an account?{" "}
-            <Link href="/login" className="text-blue-500 hover:underline">
-              Login
+            <Link
+              href="/login"
+              className="inline-flex items-center text-blue-600 hover:underline font-medium"
+            >
+              Log in
+              <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </p>
         </CardContent>

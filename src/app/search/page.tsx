@@ -124,7 +124,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                       image: product.img,
                     })
                   }
-                  className="mt-auto bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition"
+                  className="mt-auto bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition cursor-pointer"
                 >
                   Add To Cart
                 </button>

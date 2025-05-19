@@ -126,6 +126,7 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function ContactUs() {
   const form = useRef<HTMLFormElement>(null);
@@ -154,11 +155,11 @@ export default function ContactUs() {
       )
       .then(
         (result) => {
-          alert("Message sent successfully!");
+          toast.success("Message sent successfully!");
           console.log(result.text);
         },
         (error) => {
-          alert("Failed to send message.");
+          toast.error("Failed to send message.");
           console.error(error.text);
         }
       );

@@ -50,7 +50,6 @@ export default function CartPage() {
     <div className="flex flex-col md:flex-row min-h-screen mt-20">
       {/* Left – cart list */}
       <div className="flex-1 p-6 bg-gray-50 overflow-y-auto ml-20">
-        {/* ---------------------- */}
         <div className="relative w-[300px] h-[300px]">
           <Image
             src="/hippo-empty-cart.png"
@@ -59,7 +58,6 @@ export default function CartPage() {
             className="object-contain"
           />
         </div>
-        {/* ---------------------- */}
 
         <h2 className="text-xl font-semibold mb-4">
           Your Cart ({cart.length} items)
@@ -85,7 +83,7 @@ export default function CartPage() {
             className="
               fixed inset-x-0 bottom-0 z-50 max-h-[90vh] overflow-y-auto
               bg-white p-6 shadow-2xl rounded-t-2xl
-              md:static md:w-full md:max-w-md md:rounded-none md:border-l
+              md:static md:w-full md:max-w-md md:rounded-none md:border-l   
             "
           >
             <h2 className="text-2xl font-semibold border-b pb-4">
@@ -127,11 +125,11 @@ export default function CartPage() {
                   <p className="font-semibold">Shipping</p>
                   <label className="flex items-center gap-2">
                     <input type="radio" name="ship" defaultChecked />
-                    <span className="text-sm">Same‑day Delivery – $9.99</span>
+                    <span className="text-sm">Same-day Delivery - $9.99</span>
                   </label>
                   <label className="flex items-center gap-2">
                     <input type="radio" name="ship" />
-                    <span className="text-sm">Store Pickup – FREE</span>
+                    <span className="text-sm">Store Pickup - FREE</span>
                   </label>
                 </div>
 

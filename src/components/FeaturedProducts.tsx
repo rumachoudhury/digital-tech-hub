@@ -110,7 +110,7 @@ export default function FeaturedProducts() {
                 </Button> */}
 
                 <button
-                  className="text-sm text-white bg-red-600 px-10 py-2 rounded-full"
+                  className="text-sm text-white bg-red-600 px-10 py-2 rounded-full cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
 
