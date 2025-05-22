@@ -117,6 +117,7 @@ export default function FeaturedProducts() {
                     if (!user) {
                       alert("Please log in to add items to your cart");
                       router.push("/login");
+                      return; // Stop here if not logged in!
                     }
 
                     addToCart({

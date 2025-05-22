@@ -44,7 +44,7 @@ export default function ConfirmationPage() {
                 <CheckCircle className="w-6 h-6 text-white bg-green-400 rounded-full" />
                 Added to cart
               </h3>
-              {/* <h3 className="font-bold text-lg">{item.title}</h3> */}
+
               <p className="text-sm">{item.description}</p>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function ConfirmationPage() {
         </p>
 
         <Link href={`/Checkout?subtotal=${subtotal}&items=${items}`}>
-          <button className="w-full border border-gray-500 text-white bg-green-500  py-2 rounded">
+          <button className="w-full border border-gray-500 text-white bg-red-500  py-2 rounded">
             Proceed to Checkout
           </button>
         </Link>

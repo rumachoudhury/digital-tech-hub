@@ -1,6 +1,3 @@
-// import Image from "next/image";
-// import { FC, useState } from "react";
-
 import Image from "next/image";
 import { FC, useState } from "react";
 
@@ -81,17 +78,10 @@ const CartItems: FC<CartItemsProps> = ({
         );
       })}
 
-      {/* <button
-        onClick={handlePlaceOrder}
-        className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
-      >
-        Place Order
-      </button> */}
-
       {cart.length > 0 && (
         <button
           onClick={handlePlaceOrder}
-          className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
+          className="mt-6 bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 cursor-pointer"
         >
           Place Order
         </button>

@@ -37,7 +37,7 @@ export default function ThankYouPage() {
 
       <button
         onClick={handleContinueShopping}
-        className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg cursor-pointer"
+        className="mt-4 bg-red-600 text-white py-2 px-4 rounded-lg cursor-pointer"
       >
         Continue shopping
       </button>

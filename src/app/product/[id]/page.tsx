@@ -93,7 +93,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 if (!user) {
                   alert("Please log in to add items to your cart.");
                   router.push("/login");
-                  return;
+                  return; // Stop here if not logged in!
                 }
 
                 addToCart({

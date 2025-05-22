@@ -50,7 +50,7 @@ export default function ContactUs() {
       <div className="mb-4">
         <Link
           href="/"
-          className="inline-block bg-green-600 text-white px-4 py-2 mt-6 rounded-md hover:bg-blue-700 transition"
+          className="inline-block bg-red-600 text-white px-4 py-2 mt-6 rounded-md hover:bg-red-700 transition"
         >
           Back to Home
         </Link>
@@ -63,7 +63,7 @@ export default function ContactUs() {
       {/* Contact Info */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
-          <Mail className="mx-auto text-blue-600" size={32} />
+          <Mail className="mx-auto text-red-600" size={32} />
           <h3 className="text-xl font-semibold mt-4">Chat on us</h3>
           <p className="text-gray-500 mt-2">
             Our friendly team is here to help.
@@ -157,7 +157,7 @@ export default function ContactUs() {
           <div className="md:col-span-2">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
+              className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition"
             >
               Send Message
             </button>
