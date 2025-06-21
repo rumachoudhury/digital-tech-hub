@@ -20,6 +20,17 @@ interface ProductPageProps {
   };
 }
 
+interface Product {
+  _id: string;
+  title: string;
+  img: string;
+  image?: string;
+  description: string;
+  price: number;
+  rating: number;
+  category: string;
+}
+
 // export default function ProductPage({ params }: { params: { id: string } }) {
 export default function ProductPage({ params }: ProductPageProps) {
   const authContext = useAuth();
@@ -28,16 +39,6 @@ export default function ProductPage({ params }: ProductPageProps) {
   const { addToCart } = useCart();
   const { id } = params;
   const [product, setProduct] = useState<Product | null>(null);
-  interface Product {
-    _id: string;
-    title: string;
-    img: string;
-    image?: string;
-    description: string;
-    price: number;
-    rating: number;
-    category: string;
-  }
 
   const [otherProducts, setOtherProducts] = useState<Product[]>([]);
 
