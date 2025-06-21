@@ -14,9 +14,19 @@ import {
 } from "@/components/ui/card";
 // import { Button } from "@/components/ui/button";
 import { Star, StarOff } from "lucide-react";
-import type { Product } from "@/components/type/types";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+interface Product {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  img: string;
+  rating: number;
+}
 
 export default function FeaturedProducts() {
   const { addToCart } = useCart();

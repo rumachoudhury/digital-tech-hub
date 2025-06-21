@@ -70,6 +70,3 @@ export default function ConfirmationPage() {
     </div>
   );
 }
-
-// ------------
-// done with responsive

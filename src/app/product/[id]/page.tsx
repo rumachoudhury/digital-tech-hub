@@ -15,7 +15,8 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
-  const { user } = useAuth();
+  const authContext = useAuth();
+  const user = authContext?.user;
   const router = useRouter();
   const { addToCart } = useCart();
   const { id } = params;

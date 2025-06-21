@@ -65,7 +65,8 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <div className="max-w-7xl mx-auto px-6 mt-32">
       <h1 className="text-3xl md:text-4xl font-bold mb-10 text-start">
-        Search Results for <span className="text-red-500">"{query}"</span>
+        Search Results for{" "}
+        <span className="text-red-500">&quot;{query}&quot;</span>
       </h1>
 
       {loading ? (

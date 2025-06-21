@@ -66,6 +66,3 @@ export default function CheckoutPage() {
     </div>
   );
 }
-
-// ------------
-// done with responsive
