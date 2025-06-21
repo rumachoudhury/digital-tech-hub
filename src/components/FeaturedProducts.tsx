@@ -36,16 +36,31 @@ export default function FeaturedProducts() {
   const authContext = useAuth();
   const user = authContext?.user;
 
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       // const response = await axios.get("http://localhost:5001/products");
+  //       const response = await axios.get(
+  //         `${process.env.NEXT_PUBLIC_API_URL}/products`
+  //       );
+
+  //       console.log("Fetched products:", response?.data?.data);
+
+  //       setProducts(response?.data?.data);
+  //     } catch (error) {
+  //       console.error("Error fetching products:", error);
+  //     }
+  //   };
+
+  //   fetchProducts();
+  // }, []);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // const response = await axios.get("http://localhost:5001/products");
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/products`
+          "https://express-crud-c82n.onrender.com/products"
         );
-
-        console.log("Fetched products:", response?.data?.data);
-
         setProducts(response?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
