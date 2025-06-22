@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/card";
 // import { Button } from "@/components/ui/button";
 import { Star, StarOff } from "lucide-react";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaSpinner } from "react-icons/fa";
 
 interface Product {
   _id: string;
@@ -29,6 +29,8 @@ interface Product {
 }
 
 export default function FeaturedProducts() {
+  const [loading, setLoading] = useState(true); //ch
+
   const { addToCart } = useCart();
   //   const {} = useAuth(); // checking if user is logged in
   const router = useRouter();
@@ -39,13 +41,9 @@ export default function FeaturedProducts() {
   // useEffect(() => {
   //   const fetchProducts = async () => {
   //     try {
-  //       // const response = await axios.get("http://localhost:5001/products");
   //       const response = await axios.get(
-  //         `${process.env.NEXT_PUBLIC_API_URL}/products`
+  //         "https://express-crud-c82n.onrender.com/products"
   //       );
-
-  //       console.log("Fetched products:", response?.data?.data);
-
   //       setProducts(response?.data?.data);
   //     } catch (error) {
   //       console.error("Error fetching products:", error);
@@ -64,6 +62,8 @@ export default function FeaturedProducts() {
         setProducts(response?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false); //ch
       }
     };
 
@@ -75,6 +75,20 @@ export default function FeaturedProducts() {
       <h3 className="text-4xl font-bold mb-14 text-gray-800">
         Featured Products
       </h3>
+
+      {loading ? ( //ch
+        <div className="flex justify-center items-center min-h-[200px]">
+          <FaSpinner className="animate-spin text-4xl text-gray-600" />
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {products.map((product) => (
+            <Link key={product._id} href={`/product/${product._id}`}>
+              {/* Your Card component here */}
+            </Link>
+          ))}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {products.map((product) => (
