@@ -235,9 +235,13 @@ export default function ProductPage() {
 
     const fetchData = async () => {
       const productRes = await axios.get(
-        `http://localhost:5001/products/${id}`
+        // `http://localhost:5001/products/${id}`
+        `https://express-crud-c82n.onrender.com/products/${id}`
       );
-      const allProductsRes = await axios.get("http://localhost:5001/products");
+      // const allProductsRes = await axios.get("http://localhost:5001/products");
+      const allProductsRes = await axios.get(
+        "https://express-crud-c82n.onrender.com/products"
+      );
 
       setProduct(productRes.data?.data);
       const others = allProductsRes.data?.data.filter(
